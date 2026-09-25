@@ -42,11 +42,11 @@ clock for the dice rolls.
 
 ## Build & run
 
-A fresh Codespace/container likely won't have `nasm` installed. Install
-it first:
+A fresh Codespace/container likely won't have `nasm` or 32-bit `libc`
+installed. Install both first:
 
 ```bash
-sudo apt-get update && sudo apt-get install -y nasm
+sudo apt-get update && sudo apt-get install -y nasm gcc-multilib
 ```
 
 Then assemble, link, and run:
@@ -58,7 +58,9 @@ ld -m elf_i386 --dynamic-linker /lib/ld-linux.so.2 -o craps_nasm craps_nasm.o -l
 ```
 
 (`ld` comes from `binutils`, preinstalled on standard Ubuntu Codespace
-images. This program links only libc, so `gcc-multilib` isn't needed.)
+images. `gcc-multilib` is what actually provides the 32-bit `libc` this
+program links against — a 64-bit-only system has no 32-bit `-lc` to find
+without it.)
 
 ## License
 
