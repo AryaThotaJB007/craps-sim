@@ -1,6 +1,6 @@
 ; craps_nasm.asm
 ; Simulate 10,000 games of Craps (Pass Line bet) and print wins/losses.
-; NASM + 32-bit Linux, linked with libc (see Makefile).
+; NASM + 32-bit Linux, linked with libc.
 
 %define GAMES_TO_PLAY 10000
 
